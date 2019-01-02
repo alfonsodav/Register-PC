@@ -1,0 +1,50 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+  <p>informe de estudiantes<em> PC-control de la L.B Rafael Rangel</em></p>
+
+<h2>Estudiantes Registrados</h2>
+
+  <p>Se han encontrado : <strong>{{ num_estudiantes }} </strong> Estudiantes</p>
+ <form action="/buscar/" method="get">
+    <input placeholder="ingrese una cedula o serial" type="text" name="q">
+    <input type="submit" value="Buscar">
+    </form>
+
+  {% if estu_list %}
+<div id="print" style="overflow-x:auto;">
+      <table class="">
+      <thead>
+      <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cedula</th>
+          <th>Representante</th>
+          <th>Correo electronico</th>
+          <th>Año Cursante</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for estu in estu_list  %}
+          <tr>
+              <td><a href="{% url 'detalles­estudiante' estu.pk %}">{{ estu.nombre }}</a></td>
+      <td>{{ estu.apellido }}</td>
+      <td>{{ estu.cedula }}</td>
+      <td>{{ estu.representante }}</td>
+      <td>{{ estu.email }}</td>
+      <td>{{ estu.año }}</td>
+
+          </tr>
+      {% endfor %}
+      </tbody>
+
+      </table>
+      </div>
+    {% else %}
+        <p>No hay estudiantes agregados.</p>
+    {% endif %}
+ <input type="button" onclick="printDiv('print')" value="imprimir div" />
+
+{% endblock %}

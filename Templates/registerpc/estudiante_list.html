@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<h2>Editores</h2>
+
+{% if object_list %}
+<ul>
+{% for estudiante in object_list %}
+<li><a href="{% url 'detalles­estudiante' estudiante.pk %}">
+{{ estudiante.nombre }}</a></li>
+{% endfor %}
+</ul>
+
+{% else %}
+<p>No hay editores registrados.</p>
+{% endif %}
+{% endblock %}

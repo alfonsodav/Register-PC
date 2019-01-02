@@ -1,0 +1,63 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+  <p>informe de computadoras<em> PC-control de la L.B Rafael Rangel</em></p>
+
+<h2>Computadoras Registradas</h2>
+
+  <p>Se han encontrado : <strong>{{ num_computadoras }} </strong> computadoras</p>
+
+    <form action="/buscar/" method="get">
+    <input placeholder="ingrese una cedula o serial" type="text" name="q">
+    <input type="submit" value="Buscar">
+    </form>
+
+
+  {% if compu_list %}
+<div id="print">
+      <table class="">
+      <thead>
+      <tr>
+          <th>Serial</th>
+          <th>Estudiante</th>
+          <th>CI de estudiante</th>
+          <th>Representante</th>
+          <th>Direccion</th>
+          <th>telefono</th>
+          <th>Descripcion de falla</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for compu in compu_list  %}
+
+
+
+          <tr>
+              <td><a href="{% url 'detalles­compu' compu.pk %}">{{ compu.serial }}</a></td>
+              <td><a href="{% url 'detalles­estudiante' compu.estudiante.pk %}">{{ compu.estudiante }}
+              {{ compu.estudiante.apellido }}</a></td>
+              <td>{{ compu.estudiante.cedula }}</td>
+              <td><a href="{% url 'detalles­repre' compu.representante.pk %}">{{ compu.representante }}
+                  {{ compu.representante.apellido }}</a></td>
+              <td>{{ compu.representante.domicilio }}-{{ compu.representante.ciudad }}</td>
+              <td>{% if compu.representante.telefono != "0" %}{{ compu.representante.telefono }}
+                  {% else %}no tiene
+              {% endif %}</td>
+              <td>{{ compu.descripcion }}</td>
+          </tr>
+      {% endfor %}
+      </tbody>
+
+
+
+
+      </table></div>
+
+  {% else %}
+        <p>No hay computadoras agregados.</p>
+  {% endif %}
+<input type="button" onclick="printDiv('print')" value="imprimir" />
+{% endblock %}
+

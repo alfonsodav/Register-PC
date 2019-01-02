@@ -1,0 +1,47 @@
+{% extends "base_generic.html" %}
+
+{% block content %}{% comment %}
+<h2>Serial: {{ computadora.serial }}</h2>
+<ul>
+<li>pertenece a:<a href="{% url 'detalles­estudiante' computadora.estudiante.pk %}"> {{ computadora.estudiante }}</a></li>
+<li>Estado: {% if computadora.funciona %} funcionando {% else %} no funciona {% endif %} </li>
+<li>descripcion de falla: {% if computadora.descripcion %} {{ computadora.descripcion }} {% else %}no tiene fallas registradas {% endif %}</li>
+
+</ul>
+    <p><a href="{% url 'compu' %}">Volver</a></p>
+{% endcomment %}
+<table class="">
+      <thead>
+      <tr>
+          <th>Serial</th>
+          <th>Estudiante</th>
+          <th>CI de estudiante</th>
+          <th>Representante</th>
+          <th>Direccion</th>
+          <th>telefono</th>
+          <th>Descripcion de falla</th>
+      </tr>
+      </thead>
+      <tbody>
+
+          <tr>
+              <td><a href="{% url 'detalles­compu' compu.pk %}">{{ compu.serial }}</a></td>
+              <td><a href="{% url 'detalles­estudiante' compu.estudiante.pk %}">{{ compu.estudiante }}
+              {{ compu.estudiante.apellido }}</a></td>
+              <td>{{ compu.estudiante.cedula }}</td>
+              <td><a href="{% url 'detalles­repre' compu.representante.pk %}">{{ compu.representante }}
+                  {{ compu.representante.apellido }}</a></td>
+              <td>{{ compu.representante.ciudad }}-{{ compu.representante.domicilio }}</td>
+              <td>{% if compu.representante.telefono != "0" %}{{ compu.representante.telefono }}
+                  {% else %}no tiene
+              {% endif %}</td>
+              <td>{{ compu.descripcion }}</td>
+          </tr>
+
+      </tbody>
+
+
+
+
+      </table>
+{% endblock %}

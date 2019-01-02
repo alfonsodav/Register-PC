@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h2>Total de Registros</h2>
+    <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at dui ut ligula interdum sollicitudin. Donec augue nibh, scelerisque sit amet ligula vitae, lobortis aliquet est. Nullam id arcu scelerisque, interdum nibh eget, tempor nibh. Integer gravida vulputate nunc, ac dapibus ex ornare id. Pellentesque sit amet leo vitae nunc laoreet vehicula at sit amet lorem. Phasellus tortor est, elementum sit amet diam imperdiet, feugiat porta diam. Maecenas non tempor nulla. Nullam sit amet tellus nec est semper vehicula id nec tellus. Fusce finibus gravida magna, sed vestibulum elit sagittis sed.
+    </p>
+
+  <p>Total de registros almacenados:</p>
+  <ul>
+    <li><strong>Representantes:</strong> {{ num_representantes }}</li>
+    <li><strong>Estudiantes:</strong> {{ num_estudiantes }}</li>
+    <li><strong>Computadoras:</strong> {{ num_computadoras }}</li>
+  </ul>
+
+{% endblock %}

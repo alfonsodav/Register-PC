@@ -1,0 +1,50 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+   <p>informe de representantes<em> PC-control de la L.B Rafael Rangel</em></p>
+
+<h2>Representantes Registrados</h2>
+
+  <p>Se han encontrado : <strong>{{ num_representantes }} </strong> Representante</p>
+
+    <form action="/buscar/" method="get">
+    <input placeholder="ingrese una cedula o serial" type="text" name="q">
+    <input type="submit" value="Buscar">
+    </form>
+
+  {% if repre_list %}
+<div id="print">
+      <table class="">
+      <thead>
+      <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cedula</th>
+          <th>Correo</th>
+          <th>Direccion</th>
+          <th>Telefono</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for repre in repre_list  %}
+          <tr>
+              <td><a href="{% url 'detalles­repre' repre.pk %}">{{ repre.nombre }}</a></td>
+      <td>{{ repre.apellido }}</td>
+      <td>{{ repre.cedula }}</td>
+      <td>{{ repre.email }}</td>
+      <td>{{ repre.ciudad }}-{{ repre.domicilio }}</td>
+      <td>{% if repre.telefono != "0" %}{{ repre.telefono }}
+                  {% else %}no tiene
+              {% endif %}</td>
+          </tr>
+      {% endfor %}
+      </tbody>
+
+      </table></div>
+    {% else %}
+        <p>No hay representantes agregados.</p>
+    {% endif %}
+<input type="button" onclick="printDiv('print')" value="imprimir" />
+{% endblock %}

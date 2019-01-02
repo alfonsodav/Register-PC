@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {% block title %}<title>Eloisa PC-control</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{% comment %}  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>{% endcomment %}
+
+  <!-- Add additional CSS in static file -->
+  {% load static %}<link rel="stylesheet" href="{% static 'regiterpc/css/styles.css' %}">
+</head>
+
+<body>
+    <header class="head">
+        <div class="titulo"><h1>Eloisa PC-control</h1>
+
+  <p>Bienvenido al<em> PC-control de la E.B Eloisa Fonseca</em></p></div>
+   <div class="logo"> <img class="logo" src="{% static 'regiterpc/images/LOGO_ELOISA.jpg' %}"></div>
+
+    </header>
+    <div class="sidebar-nav" style=" ">
+      {% block sidebar %}
+
+          <a href="{% url 'index' %}">Home</a>
+          <a href="{% url 'repre' %}">Representantes</a>
+          <a href="{% url 'estu' %}">Estudiantes</a>
+          <a href="{% url 'compu' %}">Computadoras</a>
+          <a href="/admin">Panel de Control</a>
+
+
+     {% endblock %}
+      </div>
+
+      <div class="main">
+      {% block content %}{% endblock %}
+      </div>
+<footer>
+    <p style="float:right;margin-top:50%;color: rgba(0,0,0,0.25);">desarrollado por <a href="https://www.linkedin.com/in/alfonso-davila">Alfonso Dàvila</a></p>
+</footer>
+</body>
+</html>

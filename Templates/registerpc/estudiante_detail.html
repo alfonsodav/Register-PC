@@ -1,0 +1,37 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h2>Estudiante: {{ estudiante.nombre }}</h2>
+<table id="print">
+      <thead>
+      <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cedula</th>
+          <th>Representante</th>
+          <th>Dirección</th>
+          <th>Correo electronico</th>
+          <th>año</th>
+      </tr>
+      </thead>
+      <tbody>
+
+          <tr>
+              <td>{{ estudiante.nombre }}</td>
+      <td>{{ estudiante.apellido }}</td>
+      <td>{{ estudiante.cedula }}</td>
+      <td><a href="{% url 'detalles­repre' estudiante.representante.pk %}">
+{{ estudiante.representante }} {{ estudiante.representante.apellido }}</a></td>
+      <td>{{ estudiante.representante.domicilio }} {{ estudiante.representante.ciudad }}</td>
+      <td>{{ estudiante.email }}</td>
+      <td>{{ estudiante.año }}</td>
+
+
+          </tr>
+
+      </tbody>
+
+      </table>
+<p><a href="{% url "estu" %}"> volver</a></p>
+
+{% endblock %}

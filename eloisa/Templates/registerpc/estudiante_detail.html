@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<table class="">
+      <thead>
+      <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cedula</th>
+          <th>Representante</th>
+          <th>Correo electronico</th>
+      </tr>
+      </thead>
+      <tbody>
+
+          <tr>
+              <td>{{ estudiate.nombre }}</td>
+      <td>{{ estu.apellido }}</td>
+      <td>{{ estu.cedula }}</td>
+      <td>{{ estu.representante }}</td>
+      <td>{{ estu.email }}</td>
+
+          </tr>
+
+      </tbody>
+
+      </table>
+<p><a href="{% url "estu" %}"> volver</a></p>
+
+{% endblock %}

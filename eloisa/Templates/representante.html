@@ -1,0 +1,42 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Eloisa PC-control</h1>
+
+   <p>informe de representantes<em> PC-control de la E.B Eloisa Fonseca</em></p>
+
+<h2>Representantes Registrados</h2>
+
+  <p>Se han encontrado : <strong>{{ num_representantes }} </strong> Representante</p>
+
+  {% if repre_list %}
+<div id="historial" style="overflow-x:auto;">
+      <table class="">
+      <thead>
+      <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cedula</th>
+          <th>Correo</th>
+          <th>Direccion</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for repre in repre_list  %}
+          <tr>
+              <td><a href="{% url 'detalles­repre' repre.pk %}">{{ repre.nombre }}</a></td>
+      <td>{{ repre.apellido }}</td>
+      <td>{{ repre.cedula }}</td>
+      <td>{{ repre.email }}</td>
+      <td>{{ repre.ciudad }} - {{ repre.domicilio }}</td>
+          </tr>
+      {% endfor %}
+      </tbody>
+
+      </table></div>
+      <input type="button" onclick="printDiv('historial')" value="imprimir div" />
+    {% else %}
+        <p>No hay representantes agregados.</p>
+    {% endif %}
+
+{% endblock %}

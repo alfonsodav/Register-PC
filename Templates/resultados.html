@@ -1,0 +1,37 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<p>Estas buscado: <strong>{{ query }}</strong></p>
+{% if compu %}
+<p>Canaima encontrada: </p>
+<ul>
+{% for compu in compu %}
+<li><a href="{% url 'detalles­compu' compu.pk %}">{{ compu.serial }}</a></li>
+
+{% endfor %}
+
+</ul>
+
+{% elif cedula %}
+<p>estudiante encontrado: </p>
+<ul>
+{% for cedula in cedula %}
+<li><a href="{% url 'detalles­estudiante' cedula.pk %}">{{ cedula.nombre }}</a></li>
+
+{% endfor %}
+
+</ul>
+{% elif repre %}
+<p>Representante encontrado: </p>
+<ul>
+{% for repre in repre %}
+<li><a href="{% url 'detalles­repre' repre.pk %}">{{ repre.nombre }}</a></li>
+
+{% endfor %}
+
+</ul>
+{% else %}
+<p>Ningún Resultado coincide con tu criterio de búsqueda.</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h2>Representante: {{ representante.nombre }}</h2>
+<ul>
+<li>Domicilio: {{ representante.cedula }}</li>
+<li>Ciudad: {{ representante.apellido }}</li>
+<li>Estado: {{ representante.domicilio }}</li>
+<li>Correo: {{ representante.email }}</li>
+
+</ul>
+<p><a href="{% url "repre" %}">Volver</a></p>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h2>Representante: {{ representante.nombre }}</h2>
+
+<table id="print">
+      <thead>
+      <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cedula</th>
+          <th>Dirección</th>
+          <th>Correo electronico</th>
+          <th>telefono</th>
+      </tr>
+      </thead>
+      <tbody>
+
+          <tr>
+              <td>{{ representante.nombre }}</td>
+      <td>{{ representante.apellido }}</td>
+      <td>{{ representante.cedula }}</td>
+
+      <td>{{ representante.domicilio }} {{ representante.ciudad }}</td>
+      <td>{{ representante.email }}</td>
+      <td>{% if representante.telefono != "0" %}{{ representante.telefono }}
+                  {% else %}no tiene
+              {% endif %}</td>
+
+          </tr>
+
+      </tbody>
+
+      </table>
+<p><a href="{% url "repre" %}">Volver</a></p>
+
+{% endblock %}

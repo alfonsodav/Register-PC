@@ -1,0 +1,44 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Eloisa PC-control</h1>
+
+  <p>informe de computadoras<em> PC-control de la E.B Eloisa Fonseca</em></p>
+
+<h2>Computadoras Registradas</h2>
+
+  <p>Se han encontrado : <strong>{{ num_computadoras }} </strong> computadoras</p>
+
+  {% if compu_list %}
+<div id="historial" style="overflow-x:auto;">
+      <table class="">
+      <thead>
+      <tr>
+          <th>Serial</th>
+          <th>Estudiante</th>
+          <th>Estado funcional</th>
+          <th>Descripcion</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for compu in compu_list  %}
+          <tr>
+              <td>{{ compu.serial }}</td>
+
+              <td>{{ compu.estudiante }}</td>
+              <td>{{ compu.funciona }}</td>
+              <td>{{ compu.descripcion }}</td></tr>
+      {% endfor %}
+      </tbody>
+
+
+
+
+      </table></div>
+      <input type="button" onclick="printDiv('historial')" value="imprimir div" />
+  {% else %}
+        <p>No hay computadoras agregados.</p>
+  {% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,70 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.sidebar-nav {
+    padding: 15px;
+    height:auto;
+    width: 15.5%;
+    position: fixed;
+    top: 27.5%;
+    left: 0;
+    border-radius: 0 5px 5px 0;
+    background-color: dodgerblue;
+}
+.sidebar-nav a {
+    padding: 6px 6px 6px 10px;
+    text-decoration: none;
+    font-size: 2vw;
+    color: white;
+    display: block;
+}
+.sidebar-nav a:hover {
+    color: #3221ff;
+}
+.main{
+    margin-left: 20%;
+}/*
+.tabla-repor{
+    border: #7fc0ff;
+    border-style: solid;
+}
+.tabla-repor th{
+    margin-left: auto;
+}*/
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+thead{
+    background-color: dodgerblue;
+}
+.logo{
+    float:right;
+    width: 20%;
+    left: 25vw;
+    justify-content: flex-start;
+}
+.logo img{
+    width: 30%;
+}
+.titulo{
+    width: 80%;
+}
+.head{
+    display: inline-flex;
+    width: 100%;
+    border: 0 solid #cddcdc;
+    border-bottom-width: 2px;
+    background-color: #f2f2f2;
+    top:0;
+}

@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+    <h2>Sobre el <i>L.B "Rafael Rangel"</i></h2>
+    <p style="text-align: justify">
+      Somos una comunidad de aprendizaje pública con visión futurista generadora de cambios, con liderazgo académico, deberes y derechos mutuos, orientados a la formación  de ciudadanos críticos, reflexivos, creativos, seguros y responsables de su rol protagónico en la transformación social  de la calidad de vida comunitaria, acorde a los alcances tecnológicos, investigativos, culturales, ambientales atendiendo a los principios de participación , autonomía, democracia y paz, en función de un aprendizaje de servicio que afiance el desarrollo endógeno sustentable, soberano, nacional, local y regional del país.
+    </p>
+    <form action="/buscar/" method="get">
+    <input placeholder="ingrese una cedula o serial" type="text" name="q">
+    <input type="submit" value="Buscar">
+    </form>
+
+  <p>Total de registros almacenados:</p>
+  <ul>
+    <li><strong>Representantes:</strong> {{ num_representantes }}</li>
+    <li><strong>Estudiantes:</strong> {{ num_estudiantes }}</li>
+    <li><strong>Computadoras:</strong> {{ num_computadoras }}</li>
+  </ul>
+
+
+{% endblock %}
